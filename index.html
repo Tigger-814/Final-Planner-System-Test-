@@ -53,6 +53,22 @@ const Mathematics1ScoreCriteria = {
         FINAL: 30,
  };
 
+const SM_M4Subjects = [Mathematics1ScoreCriteria,Thai1ScoreCriteria,English1ScoreCriteria];
+const AM_M4Subjects = [Mathematics1ScoreCriteria,Thai1ScoreCriteria,English1ScoreCriteria];
+const AJ_M4Subjects = [Mathematics1ScoreCriteria,Thai1ScoreCriteria,English1ScoreCriteria];
+const AF_M5Subjects = [Mathematics1ScoreCriteria,Thai1ScoreCriteria,English1ScoreCriteria];
+const AS_M5Subjects = [Mathematics1ScoreCriteria,Thai1ScoreCriteria,English1ScoreCriteria];
+const SM_M5Subjects = [Mathematics1ScoreCriteria,Thai1ScoreCriteria,English1ScoreCriteria];
+
+const ProgramSubjects = {
+    ["SM-M4"]: SM_M4Subjects,
+    ["AM-M4"]: AM_M4Subjects,
+    ["AJ-M4"]: AJ_M4Subjects,
+    ["AF-M5"]: AF_M5Subjects,
+    ["AS-M5"]: AS_M5Subjects,
+    ["SM-M5"]: SM_M5Subjects,
+};
+
 
 
 function createSubjectLists(SubjectCriteria, SubjectName) {
@@ -113,11 +129,14 @@ function createSubjectLists(SubjectCriteria, SubjectName) {
     document.body.appendChild(SubjectParagraph);
 };
 
+const response = await fetch('./Data/SM-M4.json');
+const data = await response.json();
+
 Programs.forEach(button => {
     button.addEventListener("click", () => {
-        createSubjectLists(Mathematics1ScoreCriteria, Mathematics1ScoreCriteria.NAME);
-        createSubjectLists(Thai1ScoreCriteria, Thai1ScoreCriteria.NAME);
-        createSubjectLists(English1ScoreCriteria, English1ScoreCriteria.NAME);
+        for (const subject of data) {
+            createSubjectLists(subject,subject.NAME);
+        }
     })
 });
 </script>
