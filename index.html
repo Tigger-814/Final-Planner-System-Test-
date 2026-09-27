@@ -134,7 +134,7 @@ const data = await response.json();
 
 Programs.forEach(button => {
     button.addEventListener("click", () => {
-        for (const subject of data.Subjects) {
+        for (const subject of data) {
             createSubjectLists(subject,subject.NAME);
         }
     })
