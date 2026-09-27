@@ -129,11 +129,13 @@ function createSubjectLists(SubjectCriteria, SubjectName) {
     document.body.appendChild(SubjectParagraph);
 };
 
-const response = await fetch('./Data/SM-M4.json');
-const data = await response.json();
+/*const response = await fetch('./Data/SM-M4.json');
+const data = await response.json();*/
 
 Programs.forEach(button => {
     button.addEventListener("click", () => {
+        let response = fetch('./Data/' + button.id + '.json');
+        let data = response.json();
         for (const subject of data) {
             createSubjectLists(subject,subject.NAME);
         }
