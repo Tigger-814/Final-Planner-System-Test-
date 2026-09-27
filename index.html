@@ -132,18 +132,9 @@ function createSubjectLists(SubjectCriteria, SubjectName) {
 const response = await fetch('./Data/SM-M4.json');
 const data = await response.json();
 
-/*const ProgramLists = {
-    ["SM-M4"]: await fetch('./Data/SM-M4.json').json(),
-    ["AM-M4"]: await fetch('./Data/AM-M4.json').json(),
-    ["AJ-M4"]: await fetch('./Data/AJ-M4.json').json(),
-    ["AF-M5"]: await fetch('./Data/AF-M5.json').json(),
-    ["AS-M5"]: await fetch('./Data/AS-M5.json').json(),
-    ["SM-M5"]: await fetch('./Data/SM-M5.json').json(),
-}; */
-
 Programs.forEach(button => {
     button.addEventListener("click", () => {
-        for (const subject of data.Subjects) {
+        for (const subject of data) {
             createSubjectLists(subject,subject.NAME);
         }
     })
