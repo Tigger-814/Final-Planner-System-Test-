@@ -72,12 +72,12 @@ const ProgramSubjects = {
 
 
 
-function createSubjectLists(ProgramName,SubjectCriteria, SubjectName) {
+function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName) {
     //alert(ProgramID);
 
 
     let SubjectParagraph = document.createElement("div");
-    SubjectParagraph.id = ProgramName + "Paragraph";
+    SubjectParagraph.id = buttonUsed.id + "Paragraph";
     let SubjectTextNode = document.createTextNode(SubjectName);
     SubjectParagraph.appendChild(SubjectTextNode);
 
@@ -170,7 +170,7 @@ Programs.forEach(button => {
         let paragraphsToRemove = document.querySelectorAll(`[id="${idToRemove}"]`);
         paragraphsToRemove.forEach(paragraphToRemove => paragraphToRemove.remove());
         for (let subject of Object.values(programSubjectLists[button.id].Subjects)) {
-            createSubjectLists(button.id,subject,subject.NAME);
+            createSubjectLists(button,subject,subject.NAME);
         }
         //alert(programData.Subjects["Mathematics1"].NAME);
         //createSubjectLists(programData.Subjects.Mathematics1, programData.Subjects.Mathematics1.NAME);
