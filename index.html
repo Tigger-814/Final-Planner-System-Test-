@@ -149,7 +149,7 @@ fetch('/Data/SM-M4.json')
 
 Programs.forEach(button => {
     button.addEventListener("click", () => {
-        for (const subject of programData.Subjects) {
+        for (let subject of programData.Subjects) {
             createSubjectLists(subject,subject.NAME);
         }
         //alert(programData.Subjects["Mathematics1"].NAME);
