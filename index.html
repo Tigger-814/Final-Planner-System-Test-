@@ -141,7 +141,7 @@ let programSubjectLists = {
     ["SM-M5"]: null
 };
 
-let programsList = {"SM-M4","AM-M4","AJ-M4","AS-M5","AF-M5","SM-M5"};
+let programsList = ["SM-M4","AM-M4","AJ-M4","AS-M5","AF-M5","SM-M5"];
 
 programsList.forEach(program => {
     fetch('/Data/'+program+'.json')
