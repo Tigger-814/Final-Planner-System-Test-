@@ -1,10 +1,10 @@
 {
   "Information": {
     "NAME": "SM-M5"
-  }
+  },
   "Subjects": {
-    "Mathematics1": {
-      "NAME": "Mathematics 1",
+    "Mathematics3": {
+      "NAME": "Mathematics 3",
       "F1": 10,
       "SUM": 30,
       "F2": 10,
@@ -12,8 +12,8 @@
       "BEHAVIOR": 10,
       "FINAL": 30
     },
-    "English1": {
-      "NAME": "English 1",
+    "English3": {
+      "NAME": "English 3",
       "F1 (Opinion Essay)": 10,
       "SUM": 30,
       "F2 (Master Chef TU)": 10,
