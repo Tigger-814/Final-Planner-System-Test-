@@ -129,14 +129,28 @@ function createSubjectLists(SubjectCriteria, SubjectName) {
     document.body.appendChild(SubjectParagraph);
 };
 
-let Data = fetch('./Data/SM-M4.json');
+//let Data = fetch('./Data/SM-M4.json');
+
+fetch('./Data/SM-M4.json')
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+  })
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error("Error reading the JSON file:", error);
+  });
 
 Programs.forEach(button => {
     button.addEventListener("click", () => {
         /*for (const subject of ProgramSubjects[button.id]) {
             createSubjectLists(subject,subject.NAME);
         } */
-        alert(Data.Subjects.Mathematics1.NAME);
+        alert(data.Subjects.Mathematics1.NAME);
         createSubjectLists(Data.Subjects.Mathematics1, Data.Subjects.Mathematics1.NAME);
     });
 });
