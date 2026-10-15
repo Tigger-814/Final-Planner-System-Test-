@@ -129,11 +129,14 @@ function createSubjectLists(SubjectCriteria, SubjectName) {
     document.body.appendChild(SubjectParagraph);
 };
 
+let Data = fetch('./Data/SM-M4.json');
+
 Programs.forEach(button => {
     button.addEventListener("click", () => {
-        for (const subject of ProgramSubjects[button.id]) {
+        /*for (const subject of ProgramSubjects[button.id]) {
             createSubjectLists(subject,subject.NAME);
-        }
+        } */
+        createSubjectLists(Data.Subjects.Mathematics1, Data.Subjects.Mathematics1.NAME);
     })
 });
 </script>
