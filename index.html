@@ -131,7 +131,7 @@ function createSubjectLists(SubjectCriteria, SubjectName) {
 
 //let Data = fetch('./Data/SM-M4.json');
 
-fetch('./Data/SM-M4.json')
+fetch('./Data/Data.json')
   .then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -139,10 +139,12 @@ fetch('./Data/SM-M4.json')
     return response.json();
   })
   .then(data => {
-    console.log(data);
+    programData = data;
+    console.log("JSON successfully loaded into variable:", projectData);
+    main();
   })
   .catch(error => {
-    console.error("Error reading the JSON file:", error);
+    console.error("Failed to load JSON file. Check folder/file capitalization:", error);
   });
 
 Programs.forEach(button => {
@@ -150,7 +152,7 @@ Programs.forEach(button => {
         /*for (const subject of ProgramSubjects[button.id]) {
             createSubjectLists(subject,subject.NAME);
         } */
-        alert("data.Subjects.Mathematics1.NAME");
+        alert(programData.Subjects.Mathematics1.NAME);
         createSubjectLists(Data.Subjects.Mathematics1, Data.Subjects.Mathematics1.NAME);
     });
 });
