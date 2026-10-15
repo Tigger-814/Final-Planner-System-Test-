@@ -165,6 +165,7 @@ programsList.forEach(program => {
 
 Programs.forEach(button => {
     button.addEventListener("click", () => {
+        alert('[id="'+button.id+'Paragraph"]');
         document.querySelectorAll('[id="'+button.id+'Paragraph"]').forEach(element => {
         element.remove();
         });
