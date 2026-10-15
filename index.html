@@ -132,7 +132,19 @@ function createSubjectLists(SubjectCriteria, SubjectName) {
 
 //let Data = fetch('./Data/SM-M4.json');
 
-fetch('/Data/SM-M4.json')
+let programSubjectLists = {
+    ["SM-M4"]: null,
+    ["AM-M4"]: null,
+    ["AJ-M4"]: null,
+    ["AS-M5"]: null,
+    ["AF-M5"]: null,
+    ["SM-M5"]: null
+};
+
+let programsList = {"SM-M4","AM-M4","AJ-M4","AS-M5","AF-M5","SM-M5"};
+
+programsList.forEach(program => {
+    fetch('/Data/'+program+'.json')
   .then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! Status: ${response.status}`);
@@ -140,17 +152,20 @@ fetch('/Data/SM-M4.json')
     return response.json();
   })
   .then(data => {
-    programData = data;
-    console.log("JSON successfully loaded into variable:", programData);
+    programSubjectLists[program] = data;
+    console.log("JSON successfully loaded into variable:", programSubjectLists[program]);
     main();
   })
   .catch(error => {
     console.error("Failed to load JSON file. Check folder/file capitalization:", error);
   });
+};
+    
+
 
 Programs.forEach(button => {
     button.addEventListener("click", () => {
-        for (let subject of Object.values(programData.Subjects)) {
+        for (let subject of Object.values(programSubjectLists[button.id].Subjects)) {
             createSubjectLists(subject,subject.NAME);
         }
         //alert(programData.Subjects["Mathematics1"].NAME);
