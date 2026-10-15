@@ -167,7 +167,7 @@ Programs.forEach(button => {
     button.addEventListener("click", () => {
         //alert('Test');
         let idToRemove = button.id + "Paragraph";
-        let paragraphsToRemove = document.querySelectorAll('[id="'+idToRemove+'"]');
+        let paragraphsToRemove = document.querySelectorAll(`[id="${idToRemove}"]`);
         paragraphsToRemove.forEach(paragraphToRemove => paragraphToRemove.remove());
         for (let subject of Object.values(programSubjectLists[button.id].Subjects)) {
             createSubjectLists(button.id,subject,subject.NAME);
