@@ -12,12 +12,11 @@
       "BEHAVIOR": 10,
       "FINAL": 30
     },
-    "English3": {
-      "NAME": "English 3",
-      "F1 (Opinion Essay)": 10,
-      "SUM": 30,
-      "F2 (Master Chef TU)": 10,
-      "F2 (External Reading)": 10,
+    "Biology3": {
+      "NAME": "Biology 3",
+      "F1": 20,
+      "SUMMATIVE": 20,
+      "F2": 20,
       "BEHAVIOR": 10,
       "FINAL": 30
     }
