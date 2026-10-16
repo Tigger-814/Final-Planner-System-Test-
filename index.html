@@ -78,7 +78,6 @@ function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName, SubjectKey)
 
     let SubjectParagraph = document.createElement("div");
     SubjectParagraph.id = buttonUsed.id + "Paragraph";
-    alert(SubjectName || "N/A");
     let SubjectTextNode = document.createTextNode(SubjectName + "Subject");
     SubjectParagraph.appendChild(SubjectTextNode);
 
@@ -173,7 +172,7 @@ Programs.forEach(button => {
             paragraphsToRemove.forEach(paragraphToRemove => paragraphToRemove.remove());
         };
         for (let subject of Object.keys(programSubjectLists[button.id].Subjects)) {
-            createSubjectLists(button,programSubjectLists[button.id].Subjects[subject],subject.NAME,subject);
+            createSubjectLists(button,programSubjectLists[button.id].Subjects[subject],programSubjectLists[button.id].Subjects[subject][NAME],subject);
         }
         //alert(programData.Subjects["Mathematics1"].NAME);
         //createSubjectLists(programData.Subjects.Mathematics1, programData.Subjects.Mathematics1.NAME);
