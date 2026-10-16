@@ -91,7 +91,7 @@ function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName) {
             let CriteriaText = document.createTextNode(key);
             let CriteriaTextBox = document.createElement("input");
             CriteriaTextBox.placeholder = value;
-            CriteriaTextBox.className = SubjectName + "_CriteriaTextBox";
+            CriteriaTextBox.className = buttonUsed.id + SubjectName + "_CriteriaTextBox";
             CriteriaTextBox.addEventListener('change', function(event) {
                 CriteriaTextBox.value = clamp(Number(CriteriaTextBox.value || 0), 0, value);
             });
@@ -109,7 +109,7 @@ function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName) {
     SubjectParagraph.append(ScoreText);
 
     CalculateScore.addEventListener("click", () => {
-        let ScoreTextBoxes  = document.querySelectorAll("."+ SubjectName + "_CriteriaTextBox");
+        let ScoreTextBoxes  = document.querySelectorAll("."+ buttonUsed.id + SubjectName + "_CriteriaTextBox");
         let totalScore = 80;
         ScoreTextBoxes.forEach(input => {
             totalScore -= Number(input.value) || 0;
