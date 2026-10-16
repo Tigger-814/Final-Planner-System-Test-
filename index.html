@@ -115,7 +115,7 @@ function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName, SubjectKey)
             totalScore -= Number(input.value) || 0;
         });
        if (totalScore > 0 && totalScore <= SubjectCriteria.FINAL) {
-             ScoreText.textContent = "You need to score " + totalScore + " points in the Final to get GPA 4.;
+             ScoreText.textContent = "You need to score " + totalScore + " points in the Final to get GPA 4.";
        } else {
             ScoreText.textContent = "Your score is not enough.";
        }
