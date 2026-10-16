@@ -105,7 +105,7 @@ function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName, SubjectKey)
     CalculateScore.textContent = "Calculate Score";
     SubjectParagraph.append(CalculateScore);
     SubjectParagraph.appendChild(document.createElement("br"));
-    let ScoreText = document.createTextNode("");
+    let ScoreText = document.createTextNode("You need to score __ points in the Final to get GPA 4.");
     SubjectParagraph.append(ScoreText);
 
     CalculateScore.addEventListener("click", () => {
