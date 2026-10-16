@@ -172,7 +172,7 @@ Programs.forEach(button => {
             paragraphsToRemove.forEach(paragraphToRemove => paragraphToRemove.remove());
         };
         for (let subject of Object.keys(programSubjectLists[button.id].Subjects)) {
-            createSubjectLists(button,programSubjectLists[button.id].Subjects[subject],programSubjectLists[button.id].Subjects[subject][NAME],subject);
+            createSubjectLists(button,programSubjectLists[button.id].Subjects[subject],programSubjectLists[button.id].Subjects[subject]["NAME"],subject);
         }
         //alert(programData.Subjects["Mathematics1"].NAME);
         //createSubjectLists(programData.Subjects.Mathematics1, programData.Subjects.Mathematics1.NAME);
