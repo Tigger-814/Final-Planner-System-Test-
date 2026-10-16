@@ -72,7 +72,7 @@ const ProgramSubjects = {
 
 
 
-function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName) {
+function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName, SubjectKey) {
     //alert(ProgramID);
 
 
@@ -91,7 +91,7 @@ function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName) {
             let CriteriaText = document.createTextNode(key);
             let CriteriaTextBox = document.createElement("input");
             CriteriaTextBox.placeholder = value;
-            CriteriaTextBox.className = SubjectName + "_CriteriaTextBox";
+            CriteriaTextBox.className = SubjectKey + "_CriteriaTextBox";
             CriteriaTextBox.addEventListener('change', function(event) {
                 CriteriaTextBox.value = clamp(Number(CriteriaTextBox.value || 0), 0, value);
             });
@@ -109,7 +109,7 @@ function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName) {
     SubjectParagraph.append(ScoreText);
 
     CalculateScore.addEventListener("click", () => {
-        let ScoreTextBoxes  = document.querySelectorAll("."+ SubjectName + "_CriteriaTextBox");
+        let ScoreTextBoxes  = document.querySelectorAll("."+ SubjectKey + "_CriteriaTextBox");
         let totalScore = 80;
         ScoreTextBoxes.forEach(input => {
             totalScore -= Number(input.value) || 0;
@@ -171,8 +171,8 @@ Programs.forEach(button => {
             let paragraphsToRemove = document.querySelectorAll(`[id="${idToRemove}"]`);
             paragraphsToRemove.forEach(paragraphToRemove => paragraphToRemove.remove());
         };
-        for (let subject of Object.values(programSubjectLists[button.id].Subjects)) {
-            createSubjectLists(button,subject,subject.NAME);
+        for (let subject of Object.keys(programSubjectLists[button.id].Subjects)) {
+            createSubjectLists(button,programSubjectLists[button.id].Subjects[subject],subject.NAME,subject);
         }
         //alert(programData.Subjects["Mathematics1"].NAME);
         //createSubjectLists(programData.Subjects.Mathematics1, programData.Subjects.Mathematics1.NAME);
