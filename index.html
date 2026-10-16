@@ -78,7 +78,7 @@ function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName, SubjectKey)
 
     let SubjectParagraph = document.createElement("div");
     SubjectParagraph.id = buttonUsed.id + "Paragraph";
-    let SubjectTextNode = document.createTextNode(SubjectName + "Subject");
+    let SubjectTextNode = document.createTextNode(SubjectName);
     SubjectParagraph.appendChild(SubjectTextNode);
 
     for (let [key, value] of Object.entries(SubjectCriteria)) {
