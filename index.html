@@ -105,7 +105,7 @@ function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName, SubjectKey)
     CalculateScore.textContent = "Calculate Score";
     SubjectParagraph.append(CalculateScore);
     SubjectParagraph.appendChild(document.createElement("br"));
-    let ScoreText = document.createTextNode("Your score is: ");
+    let ScoreText = document.createTextNode("");
     SubjectParagraph.append(ScoreText);
 
     CalculateScore.addEventListener("click", () => {
@@ -115,7 +115,7 @@ function createSubjectLists(buttonUsed,SubjectCriteria, SubjectName, SubjectKey)
             totalScore -= Number(input.value) || 0;
         });
        if (totalScore > 0 && totalScore <= SubjectCriteria.FINAL) {
-             ScoreText.textContent = "Your score is: " + totalScore;
+             ScoreText.textContent = "You need to score " + totalScore + " points in the Final to get GPA 4.;
        } else {
             ScoreText.textContent = "Your score is not enough.";
        }
